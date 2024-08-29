@@ -18,7 +18,7 @@ declare module "remoteApp/RemoteComponent" {
 	export default remoteApp;
 }
 
-declare module "remoteApp/Home" {
+declare module "remoteApp/Input" {
 	const remoteApp: any;
 	export default remoteApp;
 }
