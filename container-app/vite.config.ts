@@ -8,7 +8,8 @@ export default defineConfig({
 		federation({
 			name: "container",
 			remotes: {
-				mfAngular17: "http://localhost:4202/remoteEntry.js",
+				mf_angular14: "http://localhost:4201/remoteEntry.js",
+				mfAngular17: "http://localhost:4200/remoteEntry.js",
 			},
 			shared: ["react", "react-dom"],
 		}),
