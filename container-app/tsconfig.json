@@ -2,9 +2,6 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "mfAngular14/Home": [
-        "@types/remote-modules.d.ts"
-      ],
       "mfAngular17/Login": [
         "@types/remote-modules.d.ts"
       ]
@@ -31,8 +28,7 @@
   },
   "include": [
     "src",
-    "vite.config.ts",
-    "webpack.config.ts"
+    "vite.config.ts"
   ],
   "references": [
     {
