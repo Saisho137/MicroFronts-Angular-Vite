@@ -5,12 +5,12 @@ module.exports = withModuleFederationPlugin({
   name: 'paymentMf',
 
   exposes: {
-    './PaymentComponent': './projects/payment-mf/src/app/payment/payment.component.ts',
+    "./PaymentComponent": "./projects/payment-mf/src/app/payment/payment.component.ts",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto", }),
   },
 
-  sharedMappings: ["@commons-lib"]
+  sharedMappings: ["@commons-lib"],
 });

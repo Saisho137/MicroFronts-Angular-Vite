@@ -5,12 +5,12 @@ module.exports = withModuleFederationPlugin({
   name: 'shoppingMf',
 
   exposes: {
-    './ProductModule': './projects/shopping-mf/src/app/products/products.module.ts',
+    "./ProductsModule": "./projects/shopping-mf/src/app/products/products.module.ts",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto", }),
   },
 
-  sharedMappings: ["@commons-lib"]
+  sharedMappings: ["@commons-lib"],
 });

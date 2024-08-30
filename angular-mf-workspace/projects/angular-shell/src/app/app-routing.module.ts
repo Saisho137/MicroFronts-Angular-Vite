@@ -5,7 +5,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('shoppingMf/ProductModule').then((module) => module.ProductModule),
+      import('shoppingMf/ProductsModule').then(
+        (module) => module.ProductsModule
+      ),
   },
   {
     path: 'payment',
