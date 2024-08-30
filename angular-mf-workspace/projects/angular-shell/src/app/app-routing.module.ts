@@ -5,16 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('shoppingMf/ProductsModule').then(
-        (module) => module.ProductsModule
-      ),
+      import('shoppingMf/ProductsModule').then((m) => m.ProductsModule),
   },
   {
     path: 'payment',
-    loadChildren: () =>
-      import('paymentMf/PaymentComponent').then(
-        (component) => component.PaymentComponent
-      ),
+    loadComponent: () =>
+      import('paymentMf/PaymentComponent').then((c) => c.PaymentComponent),
   },
 ];
 
