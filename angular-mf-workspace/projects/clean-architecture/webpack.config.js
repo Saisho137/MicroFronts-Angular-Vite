@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'cleanArch',
 
   exposes: {
-    "./MainComponent": "./projects/clean-architecture/src/app/main/main.component.ts",
+    "./MainModule": "./projects/clean-architecture/src/app/UI/main/main.module.ts",
   },
 
   shared: {

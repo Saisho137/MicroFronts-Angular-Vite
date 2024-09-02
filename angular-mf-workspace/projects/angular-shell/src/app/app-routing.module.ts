@@ -8,16 +8,14 @@ const routes: Routes = [
       import('shoppingMf/ProductsModule').then((m) => m.ProductsModule),
   },
   {
+    path: 'clean',
+    loadChildren: () =>
+      import('cleanArch/MainModule').then((module) => module.MainModule),
+  },
+  {
     path: 'payment',
     loadComponent: () =>
       import('paymentMf/PaymentComponent').then((c) => c.PaymentComponent),
-  },
-  {
-    path: 'clean',
-    loadComponent: () =>
-      import('cleanArch/MainComponent').then(
-        (component) => component.MainComponent
-      ),
   },
 ];
 
