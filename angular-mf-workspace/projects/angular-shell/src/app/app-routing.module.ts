@@ -12,6 +12,13 @@ const routes: Routes = [
     loadComponent: () =>
       import('paymentMf/PaymentComponent').then((c) => c.PaymentComponent),
   },
+  {
+    path: 'clean',
+    loadComponent: () =>
+      import('cleanArch/MainComponent').then(
+        (component) => component.MainComponent
+      ),
+  },
 ];
 
 @NgModule({

@@ -2,10 +2,10 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-  name: 'shoppingMf',
+  name: 'cleanArch',
 
   exposes: {
-    "./ProductsModule": "./projects/shopping-mf/src/app/products/products.module.ts",
+    "./MainComponent": "./projects/clean-architecture/src/app/main/main.component.ts",
   },
 
   shared: {
@@ -14,3 +14,4 @@ module.exports = withModuleFederationPlugin({
 
   sharedMappings: ["@commons-lib"],
 });
+

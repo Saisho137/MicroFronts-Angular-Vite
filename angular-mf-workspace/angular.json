@@ -363,107 +363,117 @@
 					}
 				}
 			}
-    },
-    "clean-architecture": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/clean-architecture",
-      "sourceRoot": "projects/clean-architecture/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/clean-architecture",
-            "index": "projects/clean-architecture/src/index.html",
-            "main": "projects/clean-architecture/src/main.ts",
-            "polyfills": "projects/clean-architecture/src/polyfills.ts",
-            "tsConfig": "projects/clean-architecture/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/clean-architecture/src/favicon.ico",
-              "projects/clean-architecture/src/assets"
-            ],
-            "styles": [
-              "projects/clean-architecture/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/clean-architecture/src/environments/environment.ts",
-                  "with": "projects/clean-architecture/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "clean-architecture:build:production"
-            },
-            "development": {
-              "browserTarget": "clean-architecture:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "clean-architecture:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/clean-architecture/src/test.ts",
-            "polyfills": "projects/clean-architecture/src/polyfills.ts",
-            "tsConfig": "projects/clean-architecture/tsconfig.spec.json",
-            "karmaConfig": "projects/clean-architecture/karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/clean-architecture/src/favicon.ico",
-              "projects/clean-architecture/src/assets"
-            ],
-            "styles": [
-              "projects/clean-architecture/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        }
-      }
-    }
+		},
+		"clean-architecture": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/clean-architecture",
+			"sourceRoot": "projects/clean-architecture/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/clean-architecture",
+						"index": "projects/clean-architecture/src/index.html",
+						"main": "projects/clean-architecture/src/main.ts",
+						"polyfills": "projects/clean-architecture/src/polyfills.ts",
+						"tsConfig": "projects/clean-architecture/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/clean-architecture/src/favicon.ico",
+							"projects/clean-architecture/src/assets"
+						],
+						"styles": [
+							"projects/clean-architecture/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/clean-architecture/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/clean-architecture/src/environments/environment.ts",
+									"with": "projects/clean-architecture/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/clean-architecture/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "clean-architecture:build:production",
+							"extraWebpackConfig": "projects/clean-architecture/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "clean-architecture:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4203,
+						"publicHost": "http://localhost:4203",
+						"extraWebpackConfig": "projects/clean-architecture/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "clean-architecture:build",
+						"extraWebpackConfig": "projects/clean-architecture/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/clean-architecture/src/test.ts",
+						"polyfills": "projects/clean-architecture/src/polyfills.ts",
+						"tsConfig": "projects/clean-architecture/tsconfig.spec.json",
+						"karmaConfig": "projects/clean-architecture/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/clean-architecture/src/favicon.ico",
+							"projects/clean-architecture/src/assets"
+						],
+						"styles": [
+							"projects/clean-architecture/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
 	},
 	"cli": {
 		"analytics": false

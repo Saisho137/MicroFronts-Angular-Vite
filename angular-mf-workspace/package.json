@@ -10,7 +10,9 @@
     "angular-shell": "ng s angular-shell",
     "shopping-mf": "ng s shopping-mf",
     "payment-mf": "ng s payment-mf",
-    "all": "npm-run-all --parallel angular-shell shopping-mf payment-mf"
+    "clean-architecture": "ng s clean-architecture",
+    "all": "npm-run-all --parallel angular-shell shopping-mf payment-mf clean-architecture",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
